@@ -1,0 +1,449 @@
+/* ===================================================
+ * Modo Oscuro Completo (Dark Mode) - Bootstrap Metro Dashboard
+ * Archivo: css/dark-mode.css
+ * =================================================== */
+
+/* 1. Fondo Global y Contenedores Principales */
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode #content {
+    background: #18191a !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .container-fluid-full {
+    background: #18191a !important;
+}
+
+body.dark-mode #sidebar-left {
+    background: #1e1e1e !important;
+    border-right: 1px solid #2d2d2d;
+}
+
+body.dark-mode .sidebar-nav {
+    background: #1e1e1e !important;
+}
+
+/* 2. Barra de Navegación Superior (Navbar) */
+body.dark-mode .navbar {
+    background: #1e1e1e !important;
+}
+
+body.dark-mode .navbar-inner {
+    background: #1e1e1e !important;
+    border-bottom: 1px solid #333 !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .navbar .brand {
+    color: #ffffff !important;
+    text-shadow: none;
+}
+
+body.dark-mode .navbar .btn-navbar {
+    background: #2a2a2a !important;
+    border-color: #444 !important;
+}
+
+/* 3. Menús Desplegables (Dropdowns de Notificaciones, Mensajes, Usuario) */
+body.dark-mode .dropdown-menu {
+    background-color: #242526 !important;
+    border: 1px solid #3a3b3c !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .dropdown-menu li {
+    border-bottom: 1px solid #333333 !important;
+}
+
+body.dark-mode .dropdown-menu li a {
+    color: #e0e0e0 !important;
+    text-shadow: none !important;
+}
+
+body.dark-mode .dropdown-menu li > a:hover,
+body.dark-mode .dropdown-menu li > a:focus {
+    background-color: #3a3b3c !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .dropdown-menu-title {
+    background: #2d2d2d !important;
+    border-bottom: 1px solid #3a3b3c !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .dropdown-menu-title a i {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .dropdown-menu-sub-footer {
+    background: #2a2a2a !important;
+    border-top: 1px solid #3a3b3c !important;
+}
+
+body.dark-mode .dropdown-menu-sub-footer a {
+    color: #aaa !important;
+}
+
+body.dark-mode ul.notifications li .message,
+body.dark-mode ul.messages li .message,
+body.dark-mode ul.tasks li .header .title {
+    color: #b0b3b8 !important;
+}
+
+body.dark-mode ul.notifications li .time,
+body.dark-mode ul.messages li .header .time {
+    color: #888888 !important;
+}
+
+/* 4. Menú Lateral (Sidebar Navigation) */
+body.dark-mode .nav-tabs.nav-stacked > li {
+    border-bottom: 1px solid #2a2a2a !important;
+}
+
+body.dark-mode .nav-tabs.nav-stacked > li > a {
+    background: #1e1e1e !important;
+    color: #cccccc !important;
+    border-color: #2a2a2a !important;
+    text-shadow: none !important;
+}
+
+body.dark-mode .nav-tabs.nav-stacked > li > a:hover {
+    background: #2a2b2e !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .nav-tabs.nav-stacked > li.active > a {
+    background: #2d89ef !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .nav-tabs.nav-stacked > li ul {
+    background: #181818 !important;
+}
+
+body.dark-mode .nav-tabs.nav-stacked > li ul li a {
+    background: #181818 !important;
+    color: #aaaaaa !important;
+    border-bottom: 1px solid #222 !important;
+}
+
+body.dark-mode .nav-tabs.nav-stacked > li ul li a:hover {
+    background: #252525 !important;
+    color: #ffffff !important;
+}
+
+/* 5. Migas de Pan (Breadcrumb) */
+body.dark-mode .breadcrumb {
+    background: #242526 !important;
+    border: 1px solid #333333 !important;
+    color: #a0a0a0 !important;
+}
+
+body.dark-mode .breadcrumb a {
+    color: #3b82f6 !important;
+    text-shadow: none !important;
+}
+
+body.dark-mode .breadcrumb span,
+body.dark-mode .breadcrumb i {
+    color: #888888 !important;
+    text-shadow: none !important;
+}
+
+/* 6. Cajas y Paneles (.box, .box-header, .box-content) */
+body.dark-mode .box {
+    background: #242526 !important;
+    border: 1px solid #3a3b3c !important;
+    color: #e0e0e0 !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .box-header {
+    background: #2d2d2d !important;
+    border-bottom: 1px solid #3a3b3c !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .box-header h2 {
+    color: #ffffff !important;
+    text-shadow: none !important;
+}
+
+body.dark-mode .box-header h2 i {
+    color: #ffffff !important;
+}
+
+body.dark-mode .box-content {
+    background: #242526 !important;
+    border-color: #3a3b3c !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .box.black,
+body.dark-mode .black [class="box-header"] {
+    background: #1e1e1e !important;
+    border-color: #333 !important;
+}
+
+/* 7. Listas de Estadísticas y Tareas (Dashboard List & Todo) */
+body.dark-mode ul.dashboard-list {
+    background: transparent !important;
+}
+
+body.dark-mode ul.dashboard-list li {
+    border-bottom: 1px solid #333 !important;
+    background: transparent !important;
+}
+
+body.dark-mode ul.dashboard-list li a {
+    color: #d0d0d0 !important;
+    text-shadow: none !important;
+}
+
+body.dark-mode ul.dashboard-list li a strong {
+    color: #ffffff !important;
+}
+
+body.dark-mode .todo.metro ul.todo-list li {
+    background: #1e1e1e !important;
+    border: 1px solid #333 !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .todo.metro ul.todo-list li strong {
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode .todo.metro ul.todo-list li a.action {
+    color: #aaa !important;
+}
+
+/* 8. Widgets, Statboxes y Circle Stats */
+body.dark-mode .statbox {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .statbox .footer a {
+    background: rgba(0, 0, 0, 0.3) !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode .circleStatsItemBox {
+    background: #242526 !important;
+    border: 1px solid #3a3b3c !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .circleStatsItemBox .header {
+    background: #2d2d2d !important;
+    color: #ffffff !important;
+    border-bottom: 1px solid #3a3b3c !important;
+}
+
+body.dark-mode .circleStatsItemBox .footer {
+    background: #1e1e1e !important;
+    border-top: 1px solid #3a3b3c !important;
+    color: #aaaaaa !important;
+}
+
+body.dark-mode .circleStatsItemBox .footer .number {
+    color: #ffffff !important;
+}
+
+body.dark-mode .widget {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .verticalChart .singleBar .title {
+    color: #cccccc !important;
+}
+
+body.dark-mode .browserStat span {
+    color: #ffffff !important;
+}
+
+/* 9. Botones Rápidos (Quick Buttons) */
+body.dark-mode .quick-button {
+    background: #242526 !important;
+    border: 1px solid #3a3b3c !important;
+    color: #e0e0e0 !important;
+    text-shadow: none !important;
+}
+
+body.dark-mode .quick-button:hover {
+    background: #2d2e30 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .quick-button p {
+    color: #cccccc !important;
+}
+
+/* 10. Tablas (Bootstrap Table & DataTables) */
+body.dark-mode table,
+body.dark-mode .table {
+    background-color: #242526 !important;
+    color: #e0e0e0 !important;
+    border-color: #3a3b3c !important;
+}
+
+body.dark-mode .table th,
+body.dark-mode .table td {
+    border-top: 1px solid #3a3b3c !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .table-bordered {
+    border: 1px solid #3a3b3c !important;
+}
+
+body.dark-mode .table-striped tbody > tr:nth-child(odd) > td,
+body.dark-mode .table-striped tbody > tr:nth-child(odd) > th {
+    background-color: #1e1e1e !important;
+}
+
+body.dark-mode .table-hover tbody tr:hover > td,
+body.dark-mode .table-hover tbody tr:hover > th {
+    background-color: #2d2e30 !important;
+}
+
+body.dark-mode .dataTables_wrapper label,
+body.dark-mode .dataTables_info {
+    color: #b0b3b8 !important;
+}
+
+body.dark-mode .dataTables_paginate .paginate_button {
+    background: #2a2a2a !important;
+    border-color: #444 !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .dataTables_paginate .paginate_button.current,
+body.dark-mode .dataTables_paginate .paginate_button:hover {
+    background: #3b82f6 !important;
+    color: #ffffff !important;
+}
+
+/* 11. Formularios e Inputs */
+body.dark-mode input[type="text"],
+body.dark-mode input[type="password"],
+body.dark-mode input[type="email"],
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #1e1e1e !important;
+    border: 1px solid #444 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5) !important;
+}
+
+body.dark-mode .input-prepend .add-on,
+body.dark-mode .input-append .add-on {
+    background: #2a2a2a !important;
+    border-color: #444 !important;
+    color: #e0e0e0 !important;
+    text-shadow: none !important;
+}
+
+body.dark-mode .form-actions {
+    background-color: #1e1e1e !important;
+    border-top: 1px solid #333 !important;
+}
+
+body.dark-mode label,
+body.dark-mode legend {
+    color: #e0e0e0 !important;
+    border-bottom-color: #333 !important;
+}
+
+/* 12. Modales (Dialogs) */
+body.dark-mode .modal {
+    background-color: #242526 !important;
+    border: 1px solid #3a3b3c !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .modal-header {
+    background: #2d2d2d !important;
+    border-bottom: 1px solid #3a3b3c !important;
+}
+
+body.dark-mode .modal-header h3 {
+    color: #ffffff !important;
+}
+
+body.dark-mode .modal-header .close {
+    color: #ffffff !important;
+    text-shadow: none !important;
+    opacity: 0.8;
+}
+
+body.dark-mode .modal-body {
+    background: #242526 !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .modal-footer {
+    background-color: #1e1e1e !important;
+    border-top: 1px solid #3a3b3c !important;
+    box-shadow: none !important;
+}
+
+/* 13. Páginas de Iconos (icon.html) */
+body.dark-mode .glyphicons-icon-list li a,
+body.dark-mode .fontawesome-icon-list div {
+    background: #1e1e1e !important;
+    border: 1px solid #333 !important;
+    color: #cccccc !important;
+}
+
+body.dark-mode .glyphicons-icon-list li a:hover,
+body.dark-mode .fontawesome-icon-list div:hover {
+    background: #2d2e30 !important;
+    color: #ffffff !important;
+}
+
+/* 14. Tipografía y Pie de Página (Footer) */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode p,
+body.dark-mode span:not(.label):not(.badge),
+body.dark-mode strong {
+    color: inherit;
+}
+
+body.dark-mode hr {
+    border-top: 1px solid #333333 !important;
+    border-bottom: none !important;
+}
+
+body.dark-mode footer {
+    background: #141414 !important;
+    border-top: 1px solid #2a2a2a !important;
+    color: #888888 !important;
+}
+
+body.dark-mode footer a {
+    color: #aaaaaa !important;
+}
+
+body.dark-mode footer a:hover {
+    color: #ffffff !important;
+}
