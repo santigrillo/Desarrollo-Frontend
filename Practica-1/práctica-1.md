@@ -1,37 +1,253 @@
-# Práctica Unidad 1
-## Ejercicio 1: Interactuando personalmente con un servidor Web
+# Práctica 1 - Guía y Resolución.
 
-Interactuar manualmente con un servidor web utilizando aplicaciones como telnet
-(disponible en Windows) o nc (Linux). Conecte con diferentes servidores Web y
-solicite recursos, existentes e inexistentes.​
+## Para correr el proyecto.
 
-a) Conectar al servidor y al puerto donde escucha (80 por lo general), y luego enviar una solicitud al servidor. Por ejemplo:
-​
-nc www.google.com 80​
-​
-GET / HTTP/1.1​
-​
-(y luego finalizar presionando 2 veces ENTER, para dejar una linea en blanco
-y forzar el envío de la petición)
+```bash 
+cd Practica-1/Bootstrap_Metro_Dashboard && python3 -m http.server 8000
+```
 
-b) Observe la respuesta del servidor Web en pantalla. Compare lo recibido con el resumen del estándar que hay en Wikipedia:
-```https://es.wikipedia.org/wiki/Protocolo_de_transferencia_de_hipertexto```
+## Ejercicio 2.
+1) Clonar el repositorio: https://github.com/sharno/Bootstrap_Metro_Dashboard
+* Actualizar las bibliotecas de JQuery, Bootstrap y JQuery UI.
+* Agregar modo oscuro, seleccionable a gusto del usuario.
 
-## Ejercicio 2: Actualización y modernización de sitio web antiguo.
-Un cliente cuenta con un sitio web funcional, pero desarrollado hace bastante tiempo. Necesita agregarle algo de funcionalidad y quizás renovar su apariencia, pero tiene un presupuesto ajustado. Por ello, no puede afrontar el desarrollo de un nuevo sitio Web, sino que prefiere invertir su presupuesto en ampliar su funcionalidad y mejorar algo su estética.
-Para simular esta situación, trabajaremos sobre un repositorio Git desarrollado hace más de una década, desarrollado con Twitter Bootstrap, jQuery y jQuery UI; además de incorporar un puñado de bibliotecas javascript.
+### Versiones  
+JQuery -> 1.9.1 - Actualizamos a 3.7.1
+jQuery Migrate -> 1.0.0 - Actualizamos a 3.4.1
+jQuery UI -> 1.10.0 - Actualizamos a 1.13.3
+Boostrap -> 2.3.1 - Actualizamos a 2.3.2 para mantener mas compatibilidad.
 
-```https://github.com/sharno/Bootstrap_Metro_Dashboard```
+### Actualizar versiones.
+En el <head> actualizamos jQuery UI a la versión 1.13.3
+Al final del <body> reemplazar scripts con las versiones antiguas por las versiones actualizadas, buscar -> Actualización bibliotecas.
 
-1)​ Clone el repositorio y evalúe el código recibido. Realicen una apreciación grupal del mismo y sugiera posibles mejoras. Estas pueden ser sobre cualquier área que le parezca adecuada, por ejemplo:
-a)​ Actualizar versión de jQuery
-b)​ Actualizar versión de Bootstrap
-c)​ Actualizar versión de jQuery UI
-d)​ Agregar modo nocturno/oscuro, seleccionable a gusto del usuario
 
-2)​ Estime individualmente el costo de desarrollo de las mejoras, y deje registro de dicha estimación.
+### Agregar modo oscuro.
+En la barra de navegación agregamos el botón para poder cambiar entre modo oscuro/claro y se crea el dark-mode.css con el modo oscuro.
+Buscar -> Botón modo oscuro
+</script> embebido, archivo dark-mode.js. Buscar -> Script modo oscuro.
 
-3)​ Actualice las bibliotecas y frameworks (nombrados en el punto 1), a la versión más nueva que sea posible, sin romper la funcionalidad existente. La premisa es que sea una actualización rápida y poco costosa, que involucre la menor cantidad de cambios posible, pero amplíe la capacidad del sitio de soportar plug-ins nuevos.​
 
-4)​ Basándose en las sugerencias realizadas en el punto 1, agregue al sitio e implemente en index.html, 3 plug-ins compatibles con las nuevas versiones actualizadas. Puede seleccionar los plug-ins desde​
-https://www.npmjs.com/search?q=keywords:jquery-plugin​
+2) Basandose en las sugerencias realizadas en el punto 1, agregue al sitio e implementar en index.html, 3 plug-ins compatibles con las nuevas versiones actualizadas. Puede elegirse dehttps://www.npmjs.com/search?q=keywords:jquery-plugin​
+
+### Resolución: Integración Nativa de 3 Plugins Modernos
+
+1. Lista desplegable para elegir periodo (simulación) para ajustar las estadisticas según el tiempo en la barra principal.
+2. Toastr: Sistema de notificaciones de la página (notifica inicio de sesión, cambios de modo, icono de refresco)
+3. Modal de "+" en el div de **To Do List** para crear tareas.
+### Guía de Implementación Paso a Paso
+#### 1. Inclusión de Hojas de Estilo (en el `<head>` de `index.html`)
+Colocar justo antes de `resoluciones/dark-mode.css`:
+
+```html
+<!-- Plugins Modernos CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+```
+#### 2. Modificaciones en la Maquetación HTML (`index.html`)
+
+##### A. Filtro de Período con Select2 en el Breadcrumb (alrededor de la línea 385):
+```html
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="index.html">Home</a> 
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">Dashboard</a></li>
+    <!-- Filtro interactivo de período -->
+    <li class="pull-right" style="margin-top: -4px;">
+        <span style="margin-right: 6px; font-size: 11px; font-weight: bold; text-transform: uppercase;"><i class="icon-calendar"></i> Período:</span>
+        <select id="dashboard-period-filter" style="width: 190px;">
+            <option value="today">📅 Hoy (Tiempo real)</option>
+            <option value="week" selected>📅 Esta Semana</option>
+            <option value="month">📅 Este Mes (Septiembre)</option>
+            <option value="quarter">📅 Último Trimestre</option>
+            <option value="year">📅 Año 2026</option>
+        </select>
+    </li>
+</ul>
+```
+
+##### B. Botón de Nueva Tarea en la cabecera de la caja "To Do List" (alrededor de la línea 925):
+Reemplazar el botón `.btn-setting` por `.btn-add-todo`:
+```html
+<div class="box-icon">
+    <a href="#" class="btn-add-todo" title="Nueva Tarea"><i class="halflings-icon white plus"></i></a>
+    <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+    <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+</div>
+```
+#### 3. Inclusión de Scripts y Lógica JavaScript (antes de `</body>` de `index.html`)
+
+```html
+<!-- Librerías de los Plugins Modernos -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+$(document).ready(function() {
+    /* ==========================================
+     * 1. TOASTR: Sistema de Notificaciones
+     * ========================================== */
+    toastr.options = {
+        "progressBar": true,
+        "positionClass": "toast-bottom-right",
+        "timeOut": 4000
+    };
+
+    // Bienvenida al cargar el Dashboard
+    setTimeout(function() {
+        toastr.success('Sesión iniciada como Dennis Ji. Panel cargado correctamente.', 'Metro Dashboard');
+    }, 800);
+
+    // Sincronización en los botones de refresco del Header (Notificaciones, Tareas, Mensajes)
+    $('a[href="#refresh"]').on('click', function(e) {
+        e.preventDefault();
+        var $menu = $(this).closest('.dropdown-menu');
+        var tipo = $menu.hasClass('tasks') ? 'Tareas' : ($menu.hasClass('messages') ? 'Mensajes' : 'Notificaciones');
+        toastr.info('Bandeja de ' + tipo + ' sincronizada con el servidor.', 'Sincronización en Vivo');
+    });
+
+    /* ==========================================
+     * 2. SELECT2: Filtro de Fechas en Breadcrumb
+     * ========================================== */
+    $('#dashboard-period-filter').select2({
+        minimumResultsForSearch: Infinity
+    }).on('change', function() {
+        var periodo = $(this).find('option:selected').text();
+        toastr.info('Métricas del panel actualizadas para: ' + periodo, 'Filtro Aplicado');
+    });
+
+    /* ==========================================
+     * 3. SWEETALERT2: Agregar Nueva Tarea a la Lista
+     * ========================================== */
+    $('.btn-add-todo').on('click', function(e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Nueva Tarea',
+            input: 'text',
+            inputLabel: '¿Qué tarea deseas registrar en el panel?',
+            inputPlaceholder: 'Ej: Revisar servidor de producción...',
+            showCancelButton: true,
+            confirmButtonText: '<i class="icon-plus"></i> Agregar',
+            cancelButtonText: 'Cancelar',
+            confirmButtonColor: '#2d89ef',
+            inputValidator: function(value) {
+                if (!value || !value.trim()) {
+                    return 'Por favor escribe una descripción para la tarea.';
+                }
+            }
+        }).then(function(result) {
+            if (result.isConfirmed) {
+                var taskName = $('<div>').text(result.value.trim()).html();
+                var newTask = $('<li class="green" style="display:none;"><a class="action icon-check-empty" href="#"></a> ' + taskName + ' <strong>ahora</strong></li>');
+                $('.todo-list').prepend(newTask);
+                newTask.slideDown(300);
+                toastr.success('Tarea agregada exitosamente.', 'To Do List');
+            }
+        });
+    });
+
+    /* ==========================================
+     * 4. SWEETALERT2: Confirmar Tarea Completada
+     * ========================================== */
+    $(document).on('click', '.todo-list .action', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $action = $(this);
+        var $li = $action.parent();
+        var yaCompletada = $action.hasClass('icon-check');
+        var taskText = $li.clone().children().remove().end().text().trim();
+
+        if (!yaCompletada) {
+            Swal.fire({
+                title: '¿Marcar como completada?',
+                text: '"' + taskText + '"',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, completar',
+                cancelButtonText: 'Cancelar',
+                confirmButtonColor: '#43b55c'
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    $action.removeClass('icon-check-empty').addClass('icon-check');
+                    $li.css('text-decoration', 'line-through');
+                    toastr.success('Tarea completada: ' + taskText, 'To Do List');
+                }
+            });
+        } else {
+            $action.removeClass('icon-check').addClass('icon-check-empty');
+            $li.css('text-decoration', 'none');
+            toastr.info('Tarea reactivada: ' + taskText, 'To Do List');
+        }
+    });
+
+    /* ==========================================
+     * 5. SWEETALERT2: Diálogo de Logout Seguro
+     * ========================================== */
+    $('.header-nav a[href="login.html"]').on('click', function(e) {
+        e.preventDefault();
+        Swal.fire({
+            title: '¿Cerrar sesión?',
+            text: 'Se cerrará la sesión actual de Dennis Ji.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#ee4f4f',
+            confirmButtonText: 'Sí, salir',
+            cancelButtonText: 'Permanecer aquí'
+        }).then(function(result) {
+            if (result.isConfirmed) {
+                window.location.href = 'login.html';
+            }
+        });
+    });
+});
+</script>
+```
+
+
+
+
+
+
+## Ejercicio 3 Fuentes de datos externas - AJAX.
+
+Continuando con el trabajo anterior, conecte con fuentes de datos externas para colocar contenido en el diseno proporcionado por la plantilla.
+
+1.​ AJAX con JavaScript: modifique en index.html uno de los indicadores de
+visitas (hay 2) por uno de usuarios online, permitiendo que el usuario
+refresque su contenido a necesidad. ​
+Para simular la respuesta dinámica del back-end, cree 3 archivos (por
+ejemplo: ajax/users_online_1.html, ajax/users_online_2.html y
+ajax/users_online_3.html) con contenidos distintos (solo deben contener un
+número: por ejemplo 456). Estos archivos luego serán cargados mediante
+AJAX dentro de esta sección, reemplazando al número actual con su
+contenido.​Desarrolle el código para cargar aleatoriamente alguno de ellos usando AJAX
+en cuanto el usuario haga clic en el footer de la sección. Para ello deberá
+adaptar el código proporcionado en https://www.w3schools.com/js/js_ajax_intro.asp​
+
+2.​ AJAX con jQuery: realizará la misma operación con el indicador de ventas,
+pero utilizando jQuery para realizar la petición AJAX. Para ello deberá
+adaptar el código de ejemplo proporcionado en:​ https://www.w3schools.com/jquery/ajax_ajax.asp​
+
+3.​ Finalmente, deberá incluir los nuevos valores dinámicamente obtenidos, en
+los gráficos de barras adjuntos a los indicadores de visitas y ventas. Para
+ello, investigará el plug-in que los genera, su documentación, el código de
+inicialización del mismo, y añadirá código a las peticiones AJAX para
+refrescar ambos gráficos.
+
+### Resolución.
+Se crean 6 archivos con numeros aleatorios en la carpeta resoluciones/ajax para simular respuestas del servidor.
+Se agregan/editan divs en el <index> buscar -> Usuarios onlines y ventas - Linea 408.
+Creación de archivo </script> resoluciones/ejercicio3.js embebido, buscar -> Usuarios online y Ventas JS.
+
+
+
+## Ejercicio 4 - Fuente de datos externas - JS Web APIs - Fetch.
+Replique la funcionalidad del ejercicio anterior para los 2 indicadores restantes
+(pedidos y visitas), pero esta vez en lugar de utilizar AJAX, utilizará la Web API
+Fetch. Para ello, deberá adaptar el código de ejemplo que encontrará en: https://www.w3schools.com/js/js_api_fetch.asp
+Una vez desarrollada la funcionalidad de actualización, implemente una actualización automática en el indicador de visitas, que se realice cada un segundo.
