@@ -6,8 +6,8 @@
 cd Practica-1/Bootstrap_Metro_Dashboard && python3 -m http.server 8000
 ```
 
-## Ejercicio 2.
-1) Clonar el repositorio: https://github.com/sharno/Bootstrap_Metro_Dashboard
+## Ejercicio 2 - Actualizar bibliotecas y plug-ins.
+1) Clonar el repositorio: `https://github.com/sharno/Bootstrap_Metro_Dashboard`
 * Actualizar las bibliotecas de JQuery, Bootstrap y JQuery UI.
 * Agregar modo oscuro, seleccionable a gusto del usuario.
 
@@ -19,22 +19,22 @@ Boostrap -> 2.3.1 - Actualizamos a 2.3.2 para mantener mas compatibilidad.
 
 ### Actualizar versiones.
 En el <head> actualizamos jQuery UI a la versión 1.13.3
-Al final del <body> reemplazar scripts con las versiones antiguas por las versiones actualizadas, buscar -> Actualización bibliotecas.
+Al final del <body> reemplazar scripts con las versiones antiguas por las versiones actualizadas, buscar: Actualización bibliotecas.
 
 
 ### Agregar modo oscuro.
-En la barra de navegación agregamos el botón para poder cambiar entre modo oscuro/claro y se crea el dark-mode.css con el modo oscuro.
-Buscar -> Botón modo oscuro
-</script> embebido, archivo dark-mode.js. Buscar -> Script modo oscuro.
+En la barra de navegación agregamos el botón para poder cambiar entre modo oscuro/claro y se crea el dark-mode.css con el modo oscuro, buscar: Botón modo oscuro
+Javascript embebido, archivo dark-mode.js. Buscar -> Script modo oscuro.
 
 
-2) Basandose en las sugerencias realizadas en el punto 1, agregue al sitio e implementar en index.html, 3 plug-ins compatibles con las nuevas versiones actualizadas. Puede elegirse dehttps://www.npmjs.com/search?q=keywords:jquery-plugin​
+2) Basandose en las sugerencias realizadas en el punto 1, agregue al sitio e implementar en index.html, 3 plug-ins compatibles con las nuevas versiones actualizadas. Puede elegirse de `https://www.npmjs.com/search?q=keywords:jquery-plugin​`
 
 ### Resolución: Integración Nativa de 3 Plugins Modernos
 
 1. Lista desplegable para elegir periodo (simulación) para ajustar las estadisticas según el tiempo en la barra principal.
 2. Toastr: Sistema de notificaciones de la página (notifica inicio de sesión, cambios de modo, icono de refresco)
 3. Modal de "+" en el div de **To Do List** para crear tareas.
+
 ### Guía de Implementación Paso a Paso
 #### 1. Inclusión de Hojas de Estilo (en el `<head>` de `index.html`)
 Colocar justo antes de `resoluciones/dark-mode.css`:
@@ -208,11 +208,6 @@ $(document).ready(function() {
 </script>
 ```
 
-
-
-
-
-
 ## Ejercicio 3 Fuentes de datos externas - AJAX.
 
 Continuando con el trabajo anterior, conecte con fuentes de datos externas para colocar contenido en el diseno proporcionado por la plantilla.
@@ -227,11 +222,11 @@ número: por ejemplo 456). Estos archivos luego serán cargados mediante
 AJAX dentro de esta sección, reemplazando al número actual con su
 contenido.​Desarrolle el código para cargar aleatoriamente alguno de ellos usando AJAX
 en cuanto el usuario haga clic en el footer de la sección. Para ello deberá
-adaptar el código proporcionado en https://www.w3schools.com/js/js_ajax_intro.asp​
+adaptar el código proporcionado en `https://www.w3schools.com/js/js_ajax_intro.asp​`
 
 2.​ AJAX con jQuery: realizará la misma operación con el indicador de ventas,
 pero utilizando jQuery para realizar la petición AJAX. Para ello deberá
-adaptar el código de ejemplo proporcionado en:​ https://www.w3schools.com/jquery/ajax_ajax.asp​
+adaptar el código de ejemplo proporcionado en:​ `https://www.w3schools.com/jquery/ajax_ajax.asp​`
 
 3.​ Finalmente, deberá incluir los nuevos valores dinámicamente obtenidos, en
 los gráficos de barras adjuntos a los indicadores de visitas y ventas. Para
@@ -241,13 +236,89 @@ refrescar ambos gráficos.
 
 ### Resolución.
 Se crean 6 archivos con numeros aleatorios en la carpeta resoluciones/ajax para simular respuestas del servidor.
-Se agregan/editan divs en el <index> buscar -> Usuarios onlines y ventas - Linea 408.
-Creación de archivo </script> resoluciones/ejercicio3.js embebido, buscar -> Usuarios online y Ventas JS.
-
-
+Se agregan/editan divs en el index.html, buscar: Usuarios onlines y ventas - Linea 408.
+Creación de archivo resoluciones/ejercicio3.js embebido, buscar: Usuarios online y Ventas JS.
 
 ## Ejercicio 4 - Fuente de datos externas - JS Web APIs - Fetch.
 Replique la funcionalidad del ejercicio anterior para los 2 indicadores restantes
 (pedidos y visitas), pero esta vez en lugar de utilizar AJAX, utilizará la Web API
-Fetch. Para ello, deberá adaptar el código de ejemplo que encontrará en: https://www.w3schools.com/js/js_api_fetch.asp
+Fetch. Para ello, deberá adaptar el código de ejemplo que encontrará en: `https://www.w3schools.com/js/js_api_fetch.asp`
 Una vez desarrollada la funcionalidad de actualización, implemente una actualización automática en el indicador de visitas, que se realice cada un segundo.
+
+### Guía resolución.
+Se crean los archivos Orders y Visits en resoluciones/ajax como fuente de datos.
+En <index> a los divs de orders y visits, se agregan id a los gráficos boxchart, number y se reemplaza el footer por un botón interactivo. Buscar -> Order y Visits
+Se crea el archivo `ejercicio4.js` para resolverlo y se agrega en el index, al final, buscar -> Orders y visitas.
+
+## Ejercicio 5 - JS Web APIs Geolocation.
+Obtener los datos de la ubicación del usuario (latitud y longitud) y mostrarla en un mapa. Para ello se utilizará el plug-in Leaflet, el cual proporciona mapas del proyecto, los cuales son de uso libre y licencia abierta. `https://leafletjs.com`
+Investigar como agregar esta biblioteca a la web, y agregue a la página que estamos desarrollando un mapa que indique la posición del usuario, la cual puede obtener usando el código provisto por: `https://www.w3schools.com/js/js_api_geolocation.asp`
+
+### Guía resolución
+Se incorpora un <css> en el <head> del index.html, buscar: CSS Leaflet
+Se incorporan dos archivos </script> al final del <body> buscar: Scripts Leaflet
+
+Se crea el <div> del mapa en el index.html, buscar: DIV Leaflet
+Se crea `ejercicio5.js` para resolver el ejercicio.
+
+## Ejercicio 6 - Fuentes de datos externas - API REST.
+La consigna de este punto es obtener datos externos, accediendo a una API REST, y luego alimentar con estos datos a varios de los componentes que hay en la página de desarrollo.
+Para ello debemos registrarnos en `https://polygon.io` lo cual nos permitirá acceder a datos de valores bursátiles. Con el registro obtendremos un token para acceder.
+
+1. Utilizar el endpoint detallado en: `https://polygon.io/docs/rest/stocks/aggregates/daily-ticker-summary​`
+Para obtener datos de la acción AAPL. En caso de problemas, analizar la situación,
+determinar posibles soluciones, y obtener conclusiones de la situación.​
+
+### Resolución.
+Obtenemos API_KEY de `polygon.io`.
+API_KEY = w_x1sBtbNpaxTRIMfcOmF5fb7h0MGqfw
+Detalle del endpoint -> `https://api.polygon.io/v1/open-close/{stocksTicker}/{date}?adjusted=true&apiKey={API_KEY}`
+Donde: 
+* {stocksTicker} es el símbolo de la empresa, en este caso AAPL.
+* {date} es la fecha, en formato YYYY-MM-DD.
+* {API_KEY} es el API_KEY que obtuve.
+
+JSON que devolvió el GET con Bruno:
+```json
+{
+  "status": "OK",
+  "from": "2026-05-20",
+  "symbol": "AAPL",
+  "open": 298.18,
+  "high": 302.8,
+  "low": 298.08,
+  "close": 302.25,
+  "volume": 3.822984371746e+07,
+  "afterHours": 301.2,
+  "preMarket": 299
+}
+```
+
+2.Utilizar el endpoint detallado en ​`https://polygon.io/docs/rest/stocks/aggregates/daily-market-summary​`​ para obtener datos del mercado estadounidense de una fecha en particular
+
+### Resolución.
+Detalle del endpoint -> `https://api.polygon.io/v2/aggs/grouped/locale/us/market/stocks/{date}?adjusted=true&apiKey={API_KEY}`
+Al usar este endpoint, nos devuelve un json completo con la información de todos los tickers disponibles en una fecha en particular.
+
+3. Duplicar la sección “Demographics” (ocupar las 12 columnas) y graficar los datos obtenidos. Utilizar colores en las barras para indicar si son variaciones positivas o negativas.​
+
+### Resolución.
+Creación de <div> en index.html, buscar: DIV Mercado Bursatil
+Creación de mercadoBursatil.css para darle color a las velas, embebido en index.html, buscar: CSS Mercado Bursatil
+Creación de ejercicio6.js embebido en index.html, buscar: Script Mercado
+
+4.​ Incorporar la biblioteca para realizar gráficos de vela CanvasJS:​
+​
+`https://canvasjs.com/javascript-stockcharts​`
+​
+y cuando se haga clic en una de las columnas del gráfico generado en el punto
+anterior, hacer aparecer un gráfico de velas que muestre el historial de esa acción.
+Para ello, utilizar el endpoint documentado en:​
+​
+`https://polygon.io/docs/rest/stocks/aggregates/custom-bars`
+
+### Resolución.
+Agregar CanvasJS StockChart en index.html
+Div de Velas agregado al index.html, buscar: Gráfico velas
+Agregar scripts a ejercicio6.js
+

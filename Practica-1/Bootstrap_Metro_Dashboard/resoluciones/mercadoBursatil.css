@@ -1,0 +1,18 @@
+.verticalChart .singleBar .bar .value.positive {
+    background: #43b55c !important; 
+}
+.verticalChart .singleBar .bar .value.negative {
+    background: #ee4f4f !important; 
+}
+.verticalChart .singleBar .bar .value span {
+    font-weight: bold;
+    color: #333;
+}
+
+.verticalChart .singleBar {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.verticalChart .singleBar:hover {
+    transform: scale(1.05);
+}

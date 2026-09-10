@@ -42,9 +42,13 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+	<!-- CSS Leaflet -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 		
-		
-		
+	<!-- CSS Mercado Bursatil -->
+	<link rel="stylesheet" href="resoluciones/mercadoBursatil.css">	
+
 </head>
 
 <body>
@@ -425,23 +429,24 @@
 				</div>
 				<!-- Usuarios Online y Ventas -->
 
-
+				<!-- Order y Visits -->
 				<div class="span3 statbox blue noMargin" onTablet="span6" onDesktop="span3">
-					<div class="boxchart">5,6,7,2,0,-4,-2,4,8,2,3,3,2</div>
-					<div class="number">982<i class="icon-arrow-up"></i></div>
+					<div id="orders-chart" class="boxchart">5,6,7,2,0,-4,-2,4,8,2,3,3,2</div>
+					<div id="orders-number" class="number">982<i class="icon-arrow-up"></i></div>
 					<div class="title">orders</div>
 					<div class="footer">
-						<a href="#"> read full report</a>
+						<a href="#" id="btn-refresh-orders"><i class="icon-refresh"></i> refrescar pedidos</a>
 					</div>
 				</div>
 				<div class="span3 statbox yellow" onTablet="span6" onDesktop="span3">
-					<div class="boxchart">7,2,2,2,1,-4,-2,4,8,,0,3,3,5</div>
-					<div class="number">678<i class="icon-arrow-down"></i></div>
+					<div id="visits-chart" class="boxchart">7,2,2,2,1,-4,-2,4,8,0,3,3,5</div>
+					<div id="visits-number" class="number">678<i class="icon-arrow-down"></i></div>
 					<div class="title">visits</div>
 					<div class="footer">
-						<a href="#"> read full report</a>
+						<a href="#" id="btn-refresh-visits"><i class="icon-refresh"></i> en vivo (1s)</a>
 					</div>
-				</div>	
+				</div>
+				<!-- Order y Visits -->
 				
 			</div>		
 
@@ -812,6 +817,8 @@
 					</div>
 				</div>
 				
+				
+
 				<div class="widget yellow span4 noMargin" onTablet="span12" onDesktop="span4">
 					<h2><span class="glyphicons fire"><i></i></span> Server Load</h2>
 					<hr>
@@ -821,6 +828,38 @@
 				</div>
 			
 			</div>
+			
+			<!-- DIV Mercado Bursatil -->
+			<div class="row-fluid">
+				<div class="widget blue span12" onTablet="span12" onDesktop="span12">
+					<h2><span class="glyphicons charts"><i></i></span> Rendimiento Diario de Acciones (EE.UU.)</h2>
+					<hr>
+					<div class="content">
+						<!-- Contenedor donde JS inyectará dinámicamente las barras -->
+						<div id="stocks-vertical-chart" class="verticalChart">
+							<p id="stocks-loading" style="text-align: center; padding: 20px;">Cargando datos del mercado...</p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Gráfico velas -->
+			<div class="row-fluid" id="candlestick-wrapper" style="display: none; margin-top: 20px;">
+				<div class="widget black span12" onTablet="span12" onDesktop="span12">
+					<h2>
+						<span class="glyphicons charts"><i></i></span> 
+						Historial de Velas (Candlestick): <strong id="candlestick-ticker-title" style="color: #67c2ef;"></strong>
+					</h2>
+					<hr>
+					<div class="content">
+						<div id="candlestick-status" style="text-align: center; padding: 10px; font-weight: bold;"></div>
+						<div id="stockChartContainer" style="height: 450px; width: 100%;"></div>
+					</div>
+				</div>
+			</div>
+			<!-- Gráfico velas -->
+			
 			
 			<div class="row-fluid">
 				
@@ -1028,12 +1067,30 @@
 				<a class="quick-button metro black span2">
 					<i class="icon-calendar"></i>
 					<p>Calendar</p>
-				</a>
-				
+				</a>				
 				<div class="clearfix"></div>
 								
 			</div><!--/row-->
-			
+
+		<!-- DIV Leaflet -->
+		<div class="row-fluid" style="margin-top: 10px;">
+			<div class="box black span12">
+				<div class="box-header">
+					<h2><i class="halflings-icon white map-marker"></i><span class="break"></span>Ubicación del Usuario (Geolocation & Leaflet)</h2>
+					<div class="box-icon">
+						<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+						<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+					</div>
+				</div>
+				<div class="box-content">
+					<div id="status-geoloc" style="margin-bottom: 10px; font-weight: bold; color: #555;">
+						Solicitando ubicación al navegador...
+					</div>
+					<div id="map" style="height: 380px; width: 100%; border-radius: 4px;"></div>
+				</div>
+			</div>
+		</div>
+
        
 
 	</div><!--/.fluid-container-->
@@ -1255,5 +1312,17 @@
 		<script src="resoluciones/dark-mode.js"></script>
 		<!-- Usuarios online y Ventas JS. -->
 		<script src="resoluciones/ejercicio3.js"></script>
-</body>
+		<!-- Orders y Visitas -->
+		<script src="resoluciones/ejercicio4.js"></script>
+
+		<!-- Scripts leaflet -->
+		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+		<script src="resoluciones/ejercicio5.js"></script>
+
+
+		
+		<!-- Script Mercado -->
+		<script src="https://cdn.canvasjs.com/canvasjs.stock.min.js"></script>
+		 <script src="resoluciones/ejercicio6.js"></script>
+	</body>
 </html>
