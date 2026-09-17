@@ -1,0 +1,25 @@
+.navbar {
+  padding: 12px 24px;
+  border-radius: 40px;
+  transition: all 0.3s ease;
+}
+
+.navbar a {
+  margin: 0 15px;
+  color: #005c66;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navbar a:hover {
+  color: #00363d;
+}
+
+/* Estilo cuando el usuario hace scroll: flotante tipo cápsula con efecto blur */
+.navbar.scrolled {
+  background-color: rgba(250, 250, 250, 0.60); /* #FAFAFA con 75% opacidad */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Soporte para Safari */
+  border: 1px solid rgba(0, 92, 102, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
