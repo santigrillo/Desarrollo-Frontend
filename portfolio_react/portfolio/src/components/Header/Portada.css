@@ -1,0 +1,103 @@
+:root {
+  --color-primary: #005c66;
+  --color-primary-hover: #00474f;
+  --color-light: #fafafa;
+}
+
+.portada {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-primary);
+}
+
+.titulo-portada,
+.subtitulo-portada {
+  font-family: "Spectral", serif;
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 4rem;
+}
+
+
+/* Acciones */
+.acciones-portada {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Botones */
+.btn {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 9px 20px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid var(--color-primary);
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale(1.04);
+}
+
+.btn-icon {
+  width: 13px;
+  height: 13px;
+}
+
+.btn-primary {
+  color: var(--color-light);
+  background-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+.btn-outline {
+  color: var(--color-primary);
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: rgba(0, 92, 102, 0.08);
+}
+
+/* Redes Sociales */
+.linkSocial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 50%;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.linkSocial img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.linkSocial:hover {
+  transform: scale(1.15);
+  opacity: 0.8;
+}
+

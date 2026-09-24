@@ -1,5 +1,29 @@
-.portada{
-    width: 100%;
-    padding-top: 80px;
+.main-content {
+  max-width: 80%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
 
+.seccion {
+  width: 100%;
+  scroll-margin-top: 100px;
+}
+
+.seccion-titulo {
+  font-family: "Geist", sans-serif;
+  color: #005c66;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid rgba(0, 92, 102, 0.15);
+  padding-bottom: 0.5rem;
+  font-size: 15px;
+}
+
+.seccion-contenido {
+  line-height: 1.7;
+  color: #2b2b2b;
+  font-size: 15px;
+  font-family: "Geist", sans-serif;
+}
