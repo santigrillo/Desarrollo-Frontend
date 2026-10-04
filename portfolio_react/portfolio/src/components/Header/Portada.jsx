@@ -12,24 +12,26 @@ export default function Portada() {
 
       <div className="acciones-portada">
         {/* Descarga CV */}
-        <a href="#cv" className="btn btn-outline" download>
+        <a href="/cv.pdf" className="btn btn-outline" download="CV-Santiago-Grillo.pdf" aria-label="Descargar CV en PDF">
           Descargar CV
-          <img src={download} alt="" className="btn-icon" />
+          <img src={download} alt="" className="btn-icon" aria-hidden="true"/>
         </a>
 
         {/* Contacto */}
         <a href="#contacto" className="btn btn-primary">
           Contactame
-          <img src={arrowRight} alt="" className="btn-icon" />
+          <img src={arrowRight} alt="" className="btn-icon" aria-hidden="true"/>
         </a>
 
+
+        {/* Redes con rel = "noopener noreferrer" */}
         <a
-          href="https://github.com/santigrillo" target="_blank" className="linkSocial">
+          href="https://github.com/santigrillo" target="_blank" rel="noopener noreferrer" className="linkSocial" aria-label="Github de Santiago Grillo">
           <img src={githublogo} alt="" />
         </a>
 
         <a
-          href="https://instagram.com/grillosanti_" target="_blank"className="linkSocial">
+          href="https://instagram.com/grillosanti_" target="_blank" rel="noopener noreferrer" className="linkSocial" aria-label="Instagram de Santiago Grillo">
           <img src={instagramlogo} alt="" />
         </a>
       </div>

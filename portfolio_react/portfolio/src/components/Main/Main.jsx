@@ -3,7 +3,7 @@ import "./Main.css";
 export default function Main() {
   return (
     <main className="main-content">
-      {/* Sección Perfil */}
+      {/* 1. Sección Perfil */}
       <section id="perfil" className="seccion">
         <h2 className="seccion-titulo">PERFIL</h2>
         <div className="seccion-contenido">
@@ -13,21 +13,39 @@ export default function Main() {
         </div>
       </section>
 
-      {/* Sección de Proyectos */}
-      <section className="seccion">
+      {/* 2. Sección Experiencia */}
+      <section id="experiencia" className="seccion">
         <h2 className="seccion-titulo">EXPERIENCIA LABORAL</h2>
         <div className="seccion-contenido">
-          <p>Texto</p>
-          {/* Aca va a ir un JSON para recorrer y crear una card por cada experiencia laboral. */}
+          <p>Proyectos académicos y de desarrollo independiente orientados al diseño de APIs y lógica de servidor.</p>
+          {/* JSON */}
         </div>
       </section>
-
-      {/* Sección de Habilidades */}
-      <section className="seccion">
+      
+      {/* 3. Sección Proyectos */}
+      <section id="proyectos" className="seccion">
         <h2 className="seccion-titulo">PROYECTOS</h2>
         <div className="seccion-contenido">
-          <p>Texto</p>
-          {/* Aca va ir otro JSON. */}
+          <p>Repositorios y aplicaciones web desarrolladas en NodeJS, bases de datos SQL y frontend React.</p>
+          {/* JSON */}
+        </div>
+      </section>
+      
+      {/* 4. Sección Habilidades */}
+      <section id="habilidades" className="seccion">
+        <h2 className="seccion-titulo">HABILIDADES</h2>
+        <div className="seccion-contenido">
+          <p>JavaScript, React, Node.js, Express, PostgreSQL, MySQL, Git y arquitectura REST.</p>
+        </div>
+      </section>
+      
+      {/* 5. Sección Contacto */}
+      <section id="contacto" className="seccion">
+        <h2 className="seccion-titulo">CONTACTO</h2>
+        <div className="seccion-contenido">
+          <p>
+            ¿Tenés alguna propuesta o consulta? Podés escribirme directamente a mi correo o a través de mis redes sociales.
+          </p>
         </div>
       </section>
     </main>

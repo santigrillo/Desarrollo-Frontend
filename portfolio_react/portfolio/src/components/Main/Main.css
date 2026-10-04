@@ -1,29 +1,51 @@
 .main-content {
-  max-width: 80%;
+  width: 100%;
+  max-width: 90%;
   margin: 0 auto;
-  box-sizing: border-box;
+  padding: 20px 0 60px;
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 60px;
 }
 
 .seccion {
   width: 100%;
-  scroll-margin-top: 100px;
+  scroll-margin-top: 90px;
 }
 
 .seccion-titulo {
   font-family: "Geist", sans-serif;
-  color: #005c66;
+  color: var(--color-primary);
   margin-bottom: 1rem;
-  border-bottom: 2px solid rgba(0, 92, 102, 0.15);
+  border-bottom: 2px solid var(--color-border);
   padding-bottom: 0.5rem;
-  font-size: 15px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .seccion-contenido {
   line-height: 1.7;
-  color: #2b2b2b;
-  font-size: 15px;
-  font-family: "Geist", sans-serif;
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+/* Breakpoint responsivo desktop */
+@media (min-width: 768px) {
+  .main-content {
+    max-width: 800px;
+    gap: 80px;
+  }
+
+  .seccion {
+    scroll-margin-top: 100px;
+  }
+
+  .seccion-titulo {
+    font-size: 1.25rem;
+  }
+
+  .seccion-contenido {
+    font-size: 1rem;
+  }
 }
