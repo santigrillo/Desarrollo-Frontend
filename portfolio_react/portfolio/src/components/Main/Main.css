@@ -16,7 +16,7 @@
 .seccion-titulo {
   font-family: "Geist", sans-serif;
   color: var(--color-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   border-bottom: 2px solid var(--color-border);
   padding-bottom: 0.5rem;
   font-size: 1.1rem;
@@ -28,6 +28,353 @@
   line-height: 1.7;
   color: var(--color-text);
   font-size: 0.95rem;
+}
+
+/* --- Cards de Experiencias y Proyectos --- */
+.cards-lista,
+.experiencias-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.card-item,
+.card-experiencia {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-item:hover,
+.card-experiencia:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+}
+
+.card-fecha,
+.experiencia-fecha {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.card-titulo,
+.experiencia-rol {
+  font-family: "Geist", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 0.25rem 0;
+}
+
+.card-subtitulo,
+.experiencia-lugar {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin: 0 0 0.85rem 0;
+}
+
+.card-descripcion,
+.experiencia-descripcion {
+  line-height: 1.65;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  margin: 0 0 1.25rem 0;
+}
+
+/* Lista de tecnologías / chips y habilidades */
+.card-tags,
+.experiencia-tags,
+.habilidades-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card-tag,
+.experiencia-tag,
+.habilidad-tag {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  color: var(--color-primary);
+  background-color: rgba(0, 92, 102, 0.08);
+  border: 1px solid rgba(0, 92, 102, 0.15);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  cursor:pointer;
+}
+
+.habilidad-tag:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
+}
+
+/* Enlaces a repositorios / demos */
+.card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.card-link:hover {
+  opacity: 0.75;
+}
+
+/* --- Sección Educación --- */
+.educacion-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.educacion-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.1rem 1.4rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.educacion-item:hover {
+  transform: translateX(4px);
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+}
+
+.educacion-titulo {
+  font-family: "Geist", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.educacion-lugar {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+@media (min-width: 640px) {
+  .educacion-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* Adaptación a Modo Oscuro */
+html.dark .card-item,
+html.dark .card-experiencia,
+html.dark .educacion-item,
+html.dark .card-contacto {
+  background-color: rgba(26, 26, 26, 0.7);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+html.dark .card-tag,
+html.dark .experiencia-tag,
+html.dark .habilidad-tag {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* --- Sección Contacto --- */
+.card-contacto {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-contacto:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+}
+
+.contacto-disponibilidad {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: rgba(0, 92, 102, 0.08);
+  border: 1px solid rgba(0, 92, 102, 0.15);
+  padding: 6px 14px;
+  border-radius: 9999px;
+}
+
+.dot-disponible {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.75;
+  }
+}
+
+.contacto-descripcion {
+  color: var(--color-text);
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.contacto-email-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 6px 8px 6px 16px;
+  border-radius: 9999px;
+  transition: border-color 0.2s ease;
+}
+
+.contacto-email-box:hover {
+  border-color: var(--color-primary);
+}
+
+.contacto-email-link {
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s ease;
+}
+
+.contacto-email-link:hover {
+  opacity: 0.8;
+}
+
+.email-icono {
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+
+.btn-copiar {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  border: none;
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-copiar:hover {
+  transform: scale(1.04);
+  opacity: 0.9;
+}
+
+.contacto-redes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.contacto-red-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.contacto-red-link:hover {
+  background-color: var(--color-border);
+  transform: translateY(-2px);
+}
+
+.contacto-ubicacion {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Modo oscuro para contacto */
+html.dark .contacto-disponibilidad {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+html.dark .contacto-email-box {
+  background-color: rgba(18, 18, 18, 0.9);
+}
+
+html.dark .btn-copiar {
+  background-color: #ffffff;
+  color: #121212;
+}
+
+html.dark .contacto-red-link {
+  background-color: rgba(18, 18, 18, 0.8);
+}
+
+html.dark .contacto-red-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Breakpoint responsivo desktop */
@@ -47,5 +394,19 @@
 
   .seccion-contenido {
     font-size: 1rem;
+  }
+
+  .card-item,
+  .card-experiencia {
+    padding: 1.75rem;
+  }
+
+  .card-titulo,
+  .experiencia-rol {
+    font-size: 1.3rem;
+  }
+
+  .card-contacto {
+    padding: 2.5rem 2rem;
   }
 }

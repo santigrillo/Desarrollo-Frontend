@@ -1,6 +1,6 @@
 .portada {
   width: 100%;
-  min-height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +10,6 @@
   padding: 90px 1.2rem 40px;
 }
 
-/* Tipografía fluida con clamp (no desborda en móviles chicos) */
 .titulo-portada,
 .subtitulo-portada {
   font-family: "Spectral", serif;
@@ -20,18 +19,16 @@
 }
 
 .titulo-portada {
-  font-size: clamp(2.1rem, 7vw, 4rem);
+  font-size: clamp(2.2rem, 8vw, 4rem);
   font-weight: 700;
 }
 
 .subtitulo-portada {
   font-size: clamp(1.15rem, 3.5vw, 1.8rem);
-  font-weight: 400;
   margin-top: 0.35rem;
   opacity: 0.95;
 }
 
-/* Acciones y Botones */
 .acciones-portada {
   margin-top: 2rem;
   display: flex;
@@ -85,7 +82,6 @@
   background-color: var(--color-border);
 }
 
-/* Redes Sociales con objetivo táctil cómodo */
 .linkSocial {
   display: inline-flex;
   align-items: center;
@@ -107,6 +103,14 @@ html.dark .linkSocial img {
   filter: brightness(0.9) invert(1);
 }
 
+html.dark .btn-outline .btn-icon {
+  filter: brightness(0) invert(1);
+}
+
+html.dark .btn-primary .btn-icon {
+  filter: brightness(0);
+}
+
 .linkSocial:hover {
   transform: scale(1.15);
   opacity: 0.8;
@@ -120,5 +124,18 @@ html.dark .linkSocial img {
 
   .acciones-portada {
     gap: 1.2rem;
+  }
+}
+
+/* Ajustes finos para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .portada {
+    padding-top: 85px;
+    height: 105vh;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
   }
 }

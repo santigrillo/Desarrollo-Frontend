@@ -5,7 +5,6 @@
   justify-content: center;
   align-items: center;
   background-color: var(--color-bg);
-  border-top: 1px solid var(--color-border);
   margin-top: 60px;
   transition: background-color 0.3s ease;
 }
